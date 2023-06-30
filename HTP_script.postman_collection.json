@@ -1,0 +1,354 @@
+{
+	"info": {
+		"_postman_id": "b0f61285-a7bb-46d9-8e71-7eb62002fd60",
+		"name": "HTP_script",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "17892960",
+		"_collection_link": "https://dark-trinity-148704.postman.co/workspace/euristiq~201dbef5-1c11-4d25-a88c-8ceff2a72b51/collection/17892960-b0f61285-a7bb-46d9-8e71-7eb62002fd60?action=share&creator=17892960&source=collection_link"
+	},
+	"item": [
+		{
+			"name": "Create school",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"let response = pm.response.text();\r",
+							"console.log(pm.response.text());\r",
+							"let SCHOOL_ID;\r",
+							"postman.setEnvironmentVariable(\"SCHOOL_ID\", response);\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{TOKEN}}",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "{{{{ADMIN_TOKEN\n}}}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"{{$randomInt}}\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{HTP_HOST_STAGE}}/schools",
+					"host": [
+						"{{HTP_HOST_STAGE}}"
+					],
+					"path": [
+						"schools"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create sensor",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"let response = pm.response.text();\r",
+							"console.log(pm.response.text());\r",
+							"let SENSOR_ID;\r",
+							"postman.setEnvironmentVariable(\"SENSOR_ID\", response);\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{TOKEN}}",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "{{{{ADMIN_TOKEN\n}}}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Genz\",\r\n    \"collected\": [\r\n        \"HeartRate\"\r\n    ],\r\n    \"schoolIds\": [\r\n        \"{{SCHOOL_ID}}\"\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{HTP_HOST_STAGE}}/sensors",
+					"host": [
+						"{{HTP_HOST_STAGE}}"
+					],
+					"path": [
+						"sensors"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create device",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"let response = pm.response.text();\r",
+							"console.log(pm.response.text());\r",
+							"let DEVICE_ID;\r",
+							"postman.setEnvironmentVariable(\"DEVICE_ID\", response);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{TOKEN}}",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "{{{{ADMIN_TOKEN\n}}}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"sensorNumber\": {{$randomInt}},\r\n    \"UDID\": \"{{$randomInt}}\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{HTP_HOST_STAGE}}/sensors/{{SENSOR_ID}}/devices",
+					"host": [
+						"{{HTP_HOST_STAGE}}"
+					],
+					"path": [
+						"sensors",
+						"{{SENSOR_ID}}",
+						"devices"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create class",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"let response = pm.response.text();\r",
+							"console.log(pm.response.text());\r",
+							"let CLASS_ID;\r",
+							"postman.setEnvironmentVariable(\"CLASS_ID\", response);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{TOKEN}}",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "{{{{ADMIN_TOKEN\n}}}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Yoga playa\",\r\n    \"type\": \"HR\",\r\n    \"activity\": \"Aquatics\",\r\n    \"zoneType\": \"ThreeZones\",\r\n    \"display\": \"StudentNickname\",\r\n    \"canSaveHighestHeartRate\": false,\r\n    \"grade\": \"K\",\r\n    \"schoolId\": \"{{SCHOOL_ID}}\",\r\n    \"instructorIds\": [\r\n        \"4706efa0-ea7a-11ed-9751-9dfa36523377\"\r\n    ],\r\n    \"startDate\": \"2023-04-21T06:00:00.000Z\",\r\n    \"endDate\": \"2023-04-30T07:00:00.000Z\",\r\n    \"days\": [\r\n        \"M\",\r\n        \"TU\"\r\n    ],\r\n    \"sensorSetId\": \"{{SENSOR_ID}}\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{HTP_HOST_STAGE}}/classes",
+					"host": [
+						"{{HTP_HOST_STAGE}}"
+					],
+					"path": [
+						"classes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create student",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"let response = pm.response.text();\r",
+							"console.log(pm.response.text());\r",
+							"let STUDENT_ID;\r",
+							"postman.setEnvironmentVariable(\"STUDENT_ID\", response);"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"//const name = Math.floor((Math.random()*100 +1);\r",
+							"//pm.globals.set(\"name\", name);\r",
+							"\r",
+							"\r",
+							"//\"email\": \"anastasiia.humaniuk+wednesday1@euristiq.com\","
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{TOKEN}}",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "{{{{ADMIN_TOKEN\n}}}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": {\r\n        \"first\": \"Wednesday\",\r\n        \"last\": \"Adams\"\r\n    },\r\n    \"userFriendlyId\": \"{{$randomInt}}\",\r\n    \"username\": \"{{$randomInt}}\",\r\n    \"email\": \"anastasiia.humaniuk+{{$randomInt}}@euristiq.com\",\r\n    \"birthday\": \"2000-03-31T21:00:00.000Z\",\r\n    \"height\": 100,\r\n    \"weight\": 200,\r\n    \"grade\": \"K\",\r\n    \"gender\": \"Female\",\r\n    \"schoolId\": \"{{SCHOOL_ID}}\",\r\n    \"personalUDID\": \"\",\r\n    \"classes\": [\r\n        {\r\n            \"classId\": \"{{CLASS_ID}}\",\r\n            \"nickname\": \"wednesday\",\r\n            \"deviceId\": \"{{DEVICE_ID}}\"\r\n        }\r\n    ],\r\n    \"workoutData\": {\r\n        \"maxHeartRate\": 1000,\r\n        \"restingHeartRate\": 100,\r\n        \"vt1\": null,\r\n        \"vt2\": null\r\n    },\r\n    \"canEditPersonalInformation\": true,\r\n    \"password\": \"Ab!12345\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{HTP_HOST_STAGE}}/students",
+					"host": [
+						"{{HTP_HOST_STAGE}}"
+					],
+					"path": [
+						"students"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Upload",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{TOKEN}}",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "{{{{ADMIN_TOKEN\n}}}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"data\":[\r\n      {\r\n         \"session\":{\r\n            \"id\":\"{{$randomInt}}\",\r\n            \"userId\":\"4706efa0-ea7a-11ed-9751-9dfa36523377\",\r\n            \"classId\":\"{{CLASS_ID}}\",\r\n            \"schoolId\":\"{{SCHOOL_ID}}\",\r\n            \"startTime\":\"2023-04-21T11:30:00.000Z\",\r\n            \"endTime\":\"2023-04-21T11:38:00.000Z\",\r\n            \"rate\":\"10\",\r\n            \"automaticEmail\": true,\r\n            \"calculateRecovery\": false,\r\n            \"workoutType\":\"GROUP_APP\",\r\n            \"zoneType\": \"FiveZones\",\r\n            \"workouts\":[\r\n               {\r\n                  \"{{STUDENT_ID}}\":{\r\n                     \"hr\":[81, -1, -1, 105, 120, 119, 134, -1, 164, 162, -1, -1, -1, -1, -1, -1, -1, -1, 146, 126, 109, 87, -1],\r\n                     \"steps\":[0, 0, 188, 202, 220, 220, 204, 204, 0, 0, 0, 0, 0, 0, 0, 0, 226, 0, 0, 0, 0, 0, 0],\r\n                     \"stepCadence\":[\r\n                     ],\r\n                     \"points\":6.3099999999999996,\r\n                     \"mvpaMinutes\":1,\r\n                     \"mvpaPercent\":63,\r\n                     \"stepsTotal\":298,\r\n                     \"stepsAvgRate\":204.89473684210523,\r\n                     \"stepsMaxRate\":226,\r\n                     \"heartRateAvg\":121,\r\n                     \"recoveryRate\":12,\r\n                     \"distanceTraveled\":0.128,\r\n                     \"maxHeartRate\":164,\r\n                     \"kilocalories\":24.681265412183159,\r\n                     \"duration\": 230,\r\n                     \"goals\": [\r\n                        {\r\n                            \"type\": \"MVPAMinuteGoal\",\r\n                            \"target\": 100,\r\n                            \"actual\": 100\r\n                        },\r\n                        {\r\n                            \"type\": \"MVPAPercentGoal\",\r\n                            \"target\": 70,\r\n                            \"actual\": 70\r\n                        },\r\n                        {\r\n                            \"type\": \"PointsGoal\",\r\n                            \"target\": 200,\r\n                            \"actual\": 1\r\n                        },\r\n                        {\r\n                            \"type\": \"StepsGoal\",\r\n                            \"target\": 30,\r\n                            \"actual\": 34\r\n                        }\r\n                    ]\r\n                  }\r\n               }\r\n            ]\r\n         }\r\n      }\r\n   ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{HTP_HOST_STAGE}}/upload",
+					"host": [
+						"{{HTP_HOST_STAGE}}"
+					],
+					"path": [
+						"upload"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
