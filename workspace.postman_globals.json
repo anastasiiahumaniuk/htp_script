@@ -1,0 +1,51 @@
+{
+	"id": "01a1addf-f5b0-47c4-8796-1c2a6a22cce8",
+	"values": [
+		{
+			"key": "HTP_HOST_STAGE",
+			"value": "https://api.stage.htp.euristiq.com/api/v1",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "TOKEN",
+			"value": "eyJraWQiOiJYelZzKzIxS1prV0w3NktqQ3Q4dzk5RmRONEUxcjAwWTE2Q3hmT2U2YTZjPSIsImFsZyI6IlJTMjU2In0.eyJzdWIiOiJmYmU1ZmYzMC1mMGMxLTRkZmQtYTU0MC01YzU0OTAzMmY4MzUiLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwiY3VzdG9tOmxhc3ROYW1lIjoiSHVtYW5pdWsiLCJpc3MiOiJodHRwczpcL1wvY29nbml0by1pZHAudXMtZWFzdC0xLmFtYXpvbmF3cy5jb21cL3VzLWVhc3QtMV9qcjY2SVZCQ3IiLCJjb2duaXRvOnVzZXJuYW1lIjoiNDcwNmVmYTAtZWE3YS0xMWVkLTk3NTEtOWRmYTM2NTIzMzc3IiwicHJlZmVycmVkX3VzZXJuYW1lIjoiMTphbmFzdGFzaWlhLmh1bWFuaXVrQGV1cmlzdGlxLmNvbSIsImN1c3RvbTp1c2VySWQiOiI0NzA2ZWZhMC1lYTdhLTExZWQtOTc1MS05ZGZhMzY1MjMzNzciLCJvcmlnaW5fanRpIjoiYzY0ODc1MGItOGQ3Yi00NjFmLTk2OTktYTcwMmZiNWU3ZmRiIiwiYXVkIjoiYmNrazhycXZrOG9ocmtoZmxwMm8zbm9kbyIsImV2ZW50X2lkIjoiNzgwODdhMzMtNGFmZi00NmUwLTlkNjgtYzdhN2ZjNzlmMDg1IiwiY3VzdG9tOmZpcnN0TmFtZSI6IkFuYXN0YXNpaWEiLCJ0b2tlbl91c2UiOiJpZCIsImF1dGhfdGltZSI6MTY4ODAzMzIwOCwiY3VzdG9tOmRpc3RyaWN0SWQiOiI1ZmVhYjZjMC1lOWJhLTExZWQtYjA4Yy04ZjI0NzYyNTMyY2IiLCJleHAiOjE2ODgxMTk2MDgsImN1c3RvbTpyb2xlIjoiRGlzdHJpY3RBZG1pbmlzdHJhdG9yIiwiaWF0IjoxNjg4MDMzMjA4LCJqdGkiOiI4YzAzZGFjNi1jN2Y5LTQxMWMtOTA0My04NDM5ZGU3NDIwM2EiLCJlbWFpbCI6ImFuYXN0YXNpaWEuaHVtYW5pdWtAZXVyaXN0aXEuY29tIn0.pLUA-zeBxYmj3q7k_RL8K0EpP1lWNBY62i0Q2tF3EHMwHQJFu1JYKeWSSwwYLFNrifLlmU7YjPSEPhsz-yWxw8sq7PUXGmXkHGozfplq1LtLXVtJQOlHlNU8Dqtny9iNIjvPv9dMbxS7zIHlZmObB8ClmSiWZ7LfD6IgV1Rc_4YuJg1TCvqZl0UZMrl5_5H3AEPMY9Yx4YX3PZh_jtdGC8Qs0n7n7CvzbqQy6HUWwIcrNnjY2grIUJ3l4z9DmBNF10vJH1-nPhZk5XnyN7O84JchMIQQRxhnP7Ivk_bEN1jv7nyE38wOgZUkxbz_eItwR2_OLVLdcz4PJ9rK5X8xRA",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "SCHOOL_ID",
+			"value": "",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "SENSOR_ID",
+			"value": "",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "DEVICE_ID",
+			"value": "",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "CLASS_ID",
+			"value": "",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "STUDENT_ID",
+			"value": "",
+			"type": "default",
+			"enabled": true
+		}
+	],
+	"name": "Globals",
+	"_postman_variable_scope": "globals",
+	"_postman_exported_at": "2023-06-14T09:30:13.401Z",
+	"_postman_exported_using": "Postman/10.14.9"
+}
